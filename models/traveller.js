@@ -4,7 +4,7 @@ const Traveller = function(journeys) {
 
 Traveller.prototype.getJourneyStartLocations = function() {
 
-  let startLocations = [];
+  const startLocations = [];
   this.journeys.map((x) => {
     startLocations.push(x.startLocation);
   });
@@ -13,7 +13,7 @@ Traveller.prototype.getJourneyStartLocations = function() {
 
 Traveller.prototype.getJourneyEndLocations = function () {
 
-  let endLocations = [];
+  const endLocations = [];
   this.journeys.map((x) => {
     endLocations.push(x.endLocation);
   });
@@ -22,7 +22,7 @@ Traveller.prototype.getJourneyEndLocations = function () {
 
 Traveller.prototype.getModesOfTransport = function () {
 
-  let modeOfTransports = [];
+  const modeOfTransports = [];
   this.journeys.map((x) => {
     modeOfTransports.push(x.transport);
   });
@@ -30,17 +30,17 @@ Traveller.prototype.getModesOfTransport = function () {
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
-  let journeys = this.journeys.filter((x) => x.transport === transport);
+  const journeys = this.journeys.filter((x) => x.transport === transport);
   return journeys;
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
-  let journeys = this.journeys.filter((x) => x.distance > minDistance);
+  const journeys = this.journeys.filter((x) => x.distance > minDistance);
   return journeys;
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-  let total = this.journeys.reduce((runningTotal, x) => {
+  const total = this.journeys.reduce((runningTotal, x) => {
      return runningTotal + x.distance;
 }, 0);
 
@@ -48,7 +48,7 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-  let uniqueModesOfTransport = [];
+  const uniqueModesOfTransport = [];
   this.journeys.map((x) => {
     if (!uniqueModesOfTransport.includes(x.transport)) {
       uniqueModesOfTransport.push(x.transport);
